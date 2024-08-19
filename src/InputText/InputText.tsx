@@ -1,6 +1,12 @@
 import styles from './InputText.module.scss';
 
 const InputText = () => {
+
+  // for (var i = 0; i < 5; i++) {
+  //   setTimeout(() => {
+  //     console.log(i)
+  //   }, 1000)
+  // }
   return (
     <div
       className={styles.box}
@@ -12,7 +18,10 @@ const InputText = () => {
         placeholder="Input..."
         className={styles.text}
       />
-      <i>|</i>
+      <div className={styles.iconTextBox}>
+        <span className={styles.iconText}>⌘</span>
+        <span className={styles.iconText}>K</span>
+      </div>
     </div>
   )
 }

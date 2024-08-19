@@ -1,10 +1,27 @@
 .text {
   font-family: Inter, sans-serif;
-  color: #70707b;
+  color: #1A1A1E;
   font-weight: 400;
   font-size: 12px;
   line-height: 20px;
-  // text-indent: 8px;
+}
+
+.iconText {
+  font-family: Inter, sans-serif;
+  color: #70707B;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.iconTextBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 20px;
+  border: 1px solid #E4E4E7;
+  border-radius: 3px;
 }
 
 input {
@@ -12,8 +29,11 @@ input {
 }
 
 input:focus {
-  // border: none;
   outline: none;
+}
+
+input::placeholder {
+  color: #70707b;
 }
 
 .box {
@@ -21,6 +41,7 @@ input:focus {
   justify-content: center;
   align-items: center;
   border: 1px solid #d1d1d6;
+  border-radius: 3px;
 }
 
 .box:focus-within {
