@@ -1,0 +1,30 @@
+.text {
+  font-family: Inter, sans-serif;
+  color: #70707b;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  // text-indent: 8px;
+}
+
+input {
+  border: none;
+}
+
+input:focus {
+  // border: none;
+  outline: none;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #d1d1d6;
+}
+
+.box:focus-within {
+  border-color: #2e90fa;
+  box-shadow: #84caff 0px 0px 0px 2px;
+  transition: 0.3s ease;
+}
