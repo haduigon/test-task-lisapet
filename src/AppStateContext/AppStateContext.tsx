@@ -7,6 +7,7 @@ type Action = {}
 
 interface App {
   inputId: string;
+  annotation: string,
 }
 
 type State = {
@@ -21,6 +22,7 @@ function reducer(state: App, action: Action) {
 const initialState: State = {
   state: {
     inputId: inputId,
+    annotation: 'This is a hint text to help user',
   },
   dispatch: () => { }
 };

@@ -3,19 +3,13 @@ import InfoIcon from "./InfoIcon/InfoIcon";
 import styles from './InputLabel.module.scss';
 import { AppStateContext } from "../AppStateContext/AppStateContext";
 
-// type Props = {
-//   labelFor?: string,
-// }
-
 const InputLabel = () => {
 
   const { state } = useContext(AppStateContext);
 
-  console.log(state);
-  
   return (
     <label
-      className={styles.labelBox}
+      className={`${styles.labelBox} mb-4`}
       htmlFor={state.inputId}
     >
       Email

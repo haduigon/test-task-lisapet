@@ -3,7 +3,7 @@ import styles from './InfoIcon.module.scss';
 
 const InfoIcon = () => {
   return (
-    <div>
+    <div className='centered-flex ml-5'>
       <img src={infoIcon} alt='info-icon' className={styles.infoIcon} />
     </div>
   )

@@ -1,5 +1,6 @@
 import InputLabel from "../InputLabel";
 import InputText from "../InputText";
+import InputAnnotation from "../InputAnnotation";
 import styles from './InputGroup.module.scss';
 
 const InputGroup = () => {
@@ -7,6 +8,7 @@ const InputGroup = () => {
     <div className={styles.box}>
       <InputLabel />
       <InputText />
+      <InputAnnotation />
     </div>
   )
 }

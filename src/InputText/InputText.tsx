@@ -8,20 +8,20 @@ import { AppStateContext } from "../AppStateContext/AppStateContext";
 const InputText = () => {
   const {state} = useContext(AppStateContext)
   return (
-    <div className={`${styles.box}`} tabIndex={0}>
+    <div className={`${styles.box} mb-4`} tabIndex={0}>
       <div className={`centered-flex ${styles.innerBox}`}>
-        {/* <SearchIcon /> */}
+        <SearchIcon />
         <input
           id={state.inputId}
           type="text"
           placeholder="Input..."
-          className={`${styles.text}`}
+          className={`${styles.text} ml-5`}
           // value={value}
           // onChange={}
         />
         <div className="centered-flex ml-5">
-          {/* <QuestionIcon />
-          <TextIcon /> */}
+          <QuestionIcon />
+          <TextIcon />
         </div>
       </div>
     </div>
