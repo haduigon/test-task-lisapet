@@ -4,6 +4,7 @@ import 'normalize.css';
 import './index.scss';
 import App from './App';
 import './global.scss';
+import { AppStateContextProvider } from './AppStateContext/AppStateContext';
 
 
 const root = ReactDOM.createRoot(
@@ -11,7 +12,10 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   // <React>
+  <AppStateContextProvider>
     <App />
+  </AppStateContextProvider>
+    
   // </React>
 );
 

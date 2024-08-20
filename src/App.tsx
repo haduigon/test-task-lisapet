@@ -1,12 +1,15 @@
 // import React from 'react';
 import './App.scss';
-import InputText from './InputText';
-import CommandSymbol from './CommandSymbol';
+import InputGroup from './InputGroup';
+// import InputText from './InputText';
+// import CommandSymbol from './CommandSymbol';
 
 function App() {
   return (
     <div className="App">
-      <InputText />
+
+      <InputGroup />
+      {/* <InputText /> */}
       {/* <CommandSymbol /> */}
     </div>
   );

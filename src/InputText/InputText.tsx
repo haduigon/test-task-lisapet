@@ -1,39 +1,29 @@
 import styles from "./InputText.module.scss";
-import searchIconGrey from "../assets/icons/searchIconGrey.png";
-import questionIconGrey from "../assets/icons/questionIconGrey.png";
+import SearchIcon from "./SearchIcon";
+import QuestionIcon from "./QuestionIcon";
+import TextIcon from "./TextIcon";
+import { useContext } from "react";
+import { AppStateContext } from "../AppStateContext/AppStateContext";
 
 const InputText = () => {
+  const {state} = useContext(AppStateContext)
   return (
-    <div className={styles.box} tabIndex={0}>
-
-      
-      <div className={`centered-flex ${styles.innerBox}`}> 
-
-        <div className="centered-flex">
-        <img
-          src={searchIconGrey}
-          className={styles.searchIcon}
-          alt="search-icon"
+    <div className={`${styles.box}`} tabIndex={0}>
+      <div className={`centered-flex ${styles.innerBox}`}>
+        {/* <SearchIcon /> */}
+        <input
+          id={state.inputId}
+          type="text"
+          placeholder="Input..."
+          className={`${styles.text}`}
+          // value={value}
+          // onChange={}
         />
-      </div>
-
-      <input
-        type="text"
-        placeholder="Input..."
-        className={`${styles.text}`}
-        />
-
-      <div className="centered-flex ml-5">
-        <img src={questionIconGrey} className={styles.searchIcon}/>
-        <div className={`${styles.iconTextBox}`}>
-        <span className={styles.iconText}>⌘</span>
-        <span className={styles.iconText}>K</span>
-      </div>
+        <div className="centered-flex ml-5">
+          {/* <QuestionIcon />
+          <TextIcon /> */}
         </div>
-        
       </div>
-
-
     </div>
   );
 };
