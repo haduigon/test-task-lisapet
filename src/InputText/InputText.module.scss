@@ -22,10 +22,17 @@
   height: 20px;
   border: 1px solid #E4E4E7;
   border-radius: 3px;
+  box-sizing: border-box;
+  // margin: 0;
+  // padding: 0;
 }
 
 input {
   border: none;
+  margin: 0;
+  padding: 0;
+  min-width: 220px;
+  // max-width: 245px;
 }
 
 input:focus {
@@ -38,14 +45,39 @@ input::placeholder {
 
 .box {
   display: flex;
-  justify-content: center;
+  // justify-content: center;
   align-items: center;
   border: 1px solid #d1d1d6;
   border-radius: 3px;
+  width: fit-content;
+  box-sizing: border-box;
+  max-width: 323px;
+  min-width: 245px;
 }
 
 .box:focus-within {
   border-color: #2e90fa;
   box-shadow: #84caff 0px 0px 0px 2px;
   transition: 0.3s ease;
+}
+
+.searchIcon {
+  width: 14px;
+  margin-right: 6px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  // height: 14px;
+}
+.searchIconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rightIconsBox {
+
+}
+
+.innerBox {
+  margin: 0 12px 0;
 }

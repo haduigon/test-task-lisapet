@@ -2,3 +2,18 @@
   font-family: "Inter";
   src: local("Inter-VariableFont"), url("../src/assets/fonts/Inter-VariableFont.ttf") format("opentype");
 }
+
+.ml-5 {
+  margin-left: 5px;
+}
+
+.mr-5 {
+  margin-right: 5px;
+}
+
+.centered-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
