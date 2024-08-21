@@ -7,12 +7,8 @@ import { AppStateContext } from "../AppStateContext/AppStateContext";
 import { useHandleChange } from "../helpers/utils";
 
 const InputText = () => {
-  const { state, dispatch } = useContext(AppStateContext);
+  const { state } = useContext(AppStateContext);
 
-  // function handleChange(data: React.ChangeEvent<HTMLInputElement>) {
-  //   state.onChange(data);
-  //   dispatch({ type: ACTIONS.SET_INPUT_VALUE, payload: data?.target.value })
-  // }
   const handleInput = useHandleChange()
   return (
     <div className={`${styles.box} mb-4`} tabIndex={0}>
@@ -20,7 +16,7 @@ const InputText = () => {
         <SearchIcon />
         <input
           id={state.inputId}
-          type="text"
+          type={state.type}
           placeholder="Input..."
           className={`${styles.text} ml-5`}
           value={state.value}

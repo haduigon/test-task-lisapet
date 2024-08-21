@@ -1,4 +1,4 @@
-.box {
+.boxInfo {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -7,6 +7,10 @@
   font-family: Inter, sans-serif;
   top: 5px;
   width: max-content;
+}
+
+.boxQuestion {
+  
 }
 
 .tooltip {

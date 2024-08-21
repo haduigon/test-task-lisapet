@@ -22,6 +22,8 @@ type Props = {
   type?: string,
   showPopUp?: boolean,
   popUpText?: string,
+  labelPosition?: 'top' | 'side',
+  popUpDestination?: 'info' | 'question',
   onChange?: (data: React.ChangeEvent<HTMLInputElement>) => void,
 }
 

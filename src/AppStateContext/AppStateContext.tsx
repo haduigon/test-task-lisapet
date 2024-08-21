@@ -5,8 +5,8 @@ import { ACTIONS, inputId } from "../helpers/utils";
 interface App {
   inputId: string;
   annotation?: string;
-  size?: 's' | 'm' | 'l' | 'xl';
-  alignment?: string;
+  size?: "s" | "m" | "l" | "xl";
+  alignment?: "left" | "right";
   border?: boolean;
   iconBefore?: boolean;
   iconAfter?: boolean;
@@ -17,10 +17,12 @@ interface App {
   };
   label?: string;
   type: string;
-  showPopUp?: boolean,
-  popUpText?: string,
-  value?: string
-  onChange: (data: React.ChangeEvent<HTMLInputElement>) => void,
+  showPopUp?: boolean;
+  popUpText?: string;
+  value?: string;
+  labelPosition: "top" | "side";
+  popUpDestination: "info" | "question";
+  onChange: (data: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 type Action =
@@ -34,12 +36,13 @@ type Action =
           | {
               required: boolean;
               type: string;
-        } | undefined
+            }
+          | undefined
           | ((data: React.ChangeEvent<HTMLInputElement>) => void);
-      }
-  }
-  | { type: ACTIONS.SET_SHOW_POPUP, payload: boolean }
-  | { type: ACTIONS.SET_INPUT_VALUE, payload: string }
+      };
+    }
+  | { type: ACTIONS.SET_SHOW_POPUP; payload: boolean }
+  | { type: ACTIONS.SET_INPUT_VALUE; payload: string };
 
 type State = {
   state: App;
@@ -71,7 +74,7 @@ const initialState: State = {
     inputId: inputId,
     annotation: "",
     size: "m",
-    alignment: "",
+    alignment: "left",
     border: true,
     iconBefore: false,
     iconAfter: false,
@@ -81,11 +84,13 @@ const initialState: State = {
       type: "",
     },
     label: "",
-    type: '',
+    type: "",
     showPopUp: false,
-    popUpText: '',
-    value: '',
-    onChange: () => {}
+    popUpText: "",
+    value: "",
+    labelPosition: "top",
+    popUpDestination: "info",
+    onChange: () => {},
   },
   dispatch: () => {},
 };

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useCallback, useContext } from "react";
 import { AppStateContext } from "../AppStateContext/AppStateContext";
 
 export enum ACTIONS {
@@ -10,10 +10,12 @@ export enum ACTIONS {
 export function useHandleChange() {
   const { state, dispatch } = useContext(AppStateContext);
 
-  return function handleChange(data: React.ChangeEvent<HTMLInputElement>) {
+  const handleChange = useCallback((data: React.ChangeEvent<HTMLInputElement>) => {
     state.onChange(data);
-    dispatch({ type: ACTIONS.SET_INPUT_VALUE, payload: data?.target.value })
-  };
+    dispatch({ type: ACTIONS.SET_INPUT_VALUE, payload: data?.target.value });
+  }, [state, dispatch]);
+
+  return handleChange;
 }
 
 export const inputId = "testLisapetInputId";
