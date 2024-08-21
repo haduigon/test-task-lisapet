@@ -1,6 +1,5 @@
 import React from "react";
 import { Dispatch, useReducer } from "react";
-// import { ACTIONS } from '../helpers/';
 import { ACTIONS, inputId } from "../helpers/utils";
 
 interface App {
@@ -18,6 +17,8 @@ interface App {
   };
   label?: string;
   type: string;
+  showTooltip?: boolean,
+  tooltipText?: string,
   onChange: (data: any) => void,
 }
 
@@ -35,7 +36,8 @@ type Action =
         } | undefined
           | ((data: any) => void);
       }
-    }
+  }
+  | { type: ACTIONS.SET_SHOW_TOOLTIP, payload: boolean }
 
 type State = {
   state: App;
@@ -48,6 +50,11 @@ function reducer(state: App, action: Action) {
       return {
         ...state,
         [action.payload.key]: action.payload.value,
+      };
+    case ACTIONS.SET_SHOW_TOOLTIP:
+      return {
+        ...state,
+        showTooltip: action.payload,
       };
   }
 }
@@ -68,6 +75,8 @@ const initialState: State = {
     },
     label: "",
     type: '',
+    showTooltip: false,
+    tooltipText: '',
     onChange: () => {}
   },
   dispatch: () => {},

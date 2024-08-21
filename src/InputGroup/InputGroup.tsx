@@ -20,6 +20,8 @@ type Props = {
   label?: string,
   annotation?: string,
   type?: string,
+  showTooltip?: boolean,
+  tooltipText?: string,
   onChange?: (data: any) => void,
 }
 
