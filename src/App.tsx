@@ -22,12 +22,21 @@ const test = {
 };
 
 function App() {
+
+  function handleChange(data: any) {
+    console.log(data.target.value);  
+  }
   return (
     <div className="App">
       <InputGroup
         label="Email"
-        annotation="UUUiiiii"
-        size="xyyyq"
+        annotation="This is a new hint"
+        size="s"
+        isRequired={{
+          required: true,
+          type: 'icon',
+        }}
+        onChange={(event) => handleChange(event)}
       />
       {/* <InputText /> */}
       {/* <CommandSymbol /> */}

@@ -6,7 +6,7 @@ import { ACTIONS, inputId } from "../helpers/utils";
 interface App {
   inputId: string;
   annotation?: string;
-  size?: string;
+  size?: 's' | 'm' | 'l' | 'xl';
   alignment?: string;
   border?: boolean;
   iconBefore?: boolean;
@@ -17,6 +17,7 @@ interface App {
     type: string;
   };
   label?: string;
+  onChange: (data: any) => void,
   // [key: string]: boolean | string | { required: boolean; type: string; } | undefined;
 }
 
@@ -31,10 +32,10 @@ type Action =
           | {
               required: boolean;
               type: string;
-            } | undefined;
+        } | undefined
+          | ((data: any) => void);
       }
     }
-  | { type: ACTIONS.SET_LABEL; payload: string };
 
 type State = {
   state: App;
@@ -48,20 +49,14 @@ function reducer(state: App, action: Action) {
         ...state,
         [action.payload.key]: action.payload.value,
       };
-    case ACTIONS.SET_LABEL:
-      return {
-        ...state,
-        label: action.payload,
-      };
   }
-  // return state;
 }
 
 const initialState: State = {
   state: {
     inputId: inputId,
-    annotation: "This is a hint text to help user",
-    size: "",
+    annotation: "",
+    size: "m",
     alignment: "",
     border: true,
     iconBefore: false,
@@ -72,6 +67,7 @@ const initialState: State = {
       type: "",
     },
     label: "",
+    onChange: () => {}
   },
   dispatch: () => {},
 };

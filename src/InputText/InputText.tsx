@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { AppStateContext } from "../AppStateContext/AppStateContext";
 
 const InputText = () => {
-  const {state} = useContext(AppStateContext)
+  const { state } = useContext(AppStateContext);
   return (
     <div className={`${styles.box} mb-4`} tabIndex={0}>
       <div className={`centered-flex ${styles.innerBox}`}>
@@ -17,7 +17,7 @@ const InputText = () => {
           placeholder="Input..."
           className={`${styles.text} ml-5`}
           // value={value}
-          // onChange={}
+          onChange={(event) => state.onChange(event)}
         />
         <div className="centered-flex ml-5">
           <QuestionIcon />

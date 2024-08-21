@@ -6,7 +6,7 @@ const InputAnnotation = () => {
   const { state } = useContext(AppStateContext);
   return (
     <div>
-      <text className={styles.text}>{state.annotation}</text>
+      <p className={styles.text}>{state.annotation}</p>
     </div>
   )
 }
