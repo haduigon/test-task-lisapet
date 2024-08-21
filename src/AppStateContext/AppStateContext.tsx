@@ -17,8 +17,8 @@ interface App {
   };
   label?: string;
   type: string;
-  showTooltip?: boolean,
-  tooltipText?: string,
+  showPopUp?: boolean,
+  popUpText?: string,
   onChange: (data: any) => void,
 }
 
@@ -37,7 +37,7 @@ type Action =
           | ((data: any) => void);
       }
   }
-  | { type: ACTIONS.SET_SHOW_TOOLTIP, payload: boolean }
+  | { type: ACTIONS.SET_SHOW_POPUP, payload: boolean }
 
 type State = {
   state: App;
@@ -51,10 +51,10 @@ function reducer(state: App, action: Action) {
         ...state,
         [action.payload.key]: action.payload.value,
       };
-    case ACTIONS.SET_SHOW_TOOLTIP:
+    case ACTIONS.SET_SHOW_POPUP:
       return {
         ...state,
-        showTooltip: action.payload,
+        showPopUp: action.payload,
       };
   }
 }
@@ -75,8 +75,8 @@ const initialState: State = {
     },
     label: "",
     type: '',
-    showTooltip: false,
-    tooltipText: '',
+    showPopUp: false,
+    popUpText: '',
     onChange: () => {}
   },
   dispatch: () => {},
