@@ -11,13 +11,13 @@ const InfoIcon = () => {
   
   return (
     <div className='centered-flex ml-5'>
-      {state.showPopUp && <PopUp />}
+      {state.showPopUpInfo && <PopUp />}
       <img
         src={infoIcon}
         alt='info-icon'
         className={styles.infoIcon}
-        onMouseOver={() => dispatch({ type: ACTIONS.SET_SHOW_POPUP, payload: true })}
-        onMouseOut={() => dispatch({ type: ACTIONS.SET_SHOW_POPUP, payload: false })}
+        onMouseOver={() => dispatch({ type: ACTIONS.SET_SHOW_POPUP_INFO, payload: true })}
+        onMouseOut={() => dispatch({ type: ACTIONS.SET_SHOW_POPUP_INFO, payload: false })}
       />
     </div>
   )

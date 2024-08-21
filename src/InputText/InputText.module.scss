@@ -16,6 +16,15 @@
   text-align: start;
 }
 
+.textBig {
+  font-family: Inter, sans-serif;
+  color: #1A1A1E;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: start;
+}
+
 input {
   border: none;
   margin: 0;
@@ -39,4 +48,17 @@ input::placeholder {
 
 .innerBox {
   margin: 0 10px 0;
+}
+
+.innerBoxS {
+  margin: 0 10px 0;
+}
+.innerBoxM {
+  margin: 8px 10px 8px;
+}
+.innerBoxL {
+  margin: 8px 10px 8px;
+}
+.innerBoxXL {
+  margin: 12px 10px 12px;
 }

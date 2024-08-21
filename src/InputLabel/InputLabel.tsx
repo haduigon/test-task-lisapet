@@ -2,15 +2,18 @@ import { useContext } from "react";
 import InfoIcon from "../InfoIcon/InfoIcon";
 import styles from './InputLabel.module.scss';
 import { AppStateContext } from "../AppStateContext/AppStateContext";
+import classNames from "classnames";
 
 const InputLabel = () => {
 
   const { state } = useContext(AppStateContext);
-  // console.log(state, 'tate into input label');
   
   return (
     <label
-      className={`${styles.labelBox} mb-4`}
+      className={classNames('mb-4', {
+        [styles.textSmall]: state.size === 's' || state.size === 'm',
+        [styles.textBig]: state.size === 'l' || state.size === 'xl',
+      })}
       htmlFor={state.inputId}
     >
       {state.label}

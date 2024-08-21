@@ -10,15 +10,17 @@ function App() {
     <div className="App">
       <div className="ml-5">
         <InputGroup
+          type="email"
         label="Email"
         annotation="This is a new hint"
-        size='l'
+        size='s'
         isRequired={{
           required: true,
           type: 'icon',
         }}
         onChange={(event) => handleChange(event)}
-        popUpText="This is a tooltip"
+          popUpText="This is a tooltip"
+          iconBefore={true}
       />
       </div>
     </div>

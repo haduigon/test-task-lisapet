@@ -20,11 +20,13 @@ type Props = {
   label?: string,
   annotation?: string,
   type?: string,
-  showPopUp?: boolean,
+  showPopUpInfo?: boolean,
+  showPopUpQuestion?: boolean,
   popUpText?: string,
-  labelPosition?: 'top' | 'side',
-  popUpDestination?: 'info' | 'question',
+  questionText?: string,
   onChange?: (data: React.ChangeEvent<HTMLInputElement>) => void,
+  onChangeIconBefore?: (data: React.ChangeEvent<HTMLInputElement>) => void,
+  onChangeIconAfter?: (data: React.ChangeEvent<HTMLInputElement>) => void,
 }
 
 const InputGroup: React.FC<Props> = ({...args}) => {
@@ -43,9 +45,9 @@ const InputGroup: React.FC<Props> = ({...args}) => {
 
   return (
     <div className={styles.box}>
-      <InputLabel />
+      {/* <InputLabel /> */}
       <InputText />
-      <InputAnnotation />
+      {/* <InputAnnotation /> */}
     </div>
   )
 }

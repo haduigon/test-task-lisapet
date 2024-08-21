@@ -3,26 +3,28 @@ import { Dispatch, useReducer } from "react";
 import { ACTIONS, inputId } from "../helpers/utils";
 
 interface App {
-  inputId: string;
-  annotation?: string;
-  size?: "s" | "m" | "l" | "xl";
-  alignment?: "left" | "right";
-  border?: boolean;
-  iconBefore?: boolean;
-  iconAfter?: boolean;
-  shortKey?: boolean;
+  inputId: string,
+  annotation?: string,
+  size?: "s" | "m" | "l" | "xl",
+  alignment?: "left" | "right",
+  border?: boolean,
+  iconBefore?: boolean,
+  iconAfter?: boolean,
+  shortKey?: boolean,
   isRequired?: {
-    required: boolean;
-    type?: string;
+    required: boolean,
+    type?: string,
   };
-  label?: string;
-  type: string;
-  showPopUp?: boolean;
-  popUpText?: string;
-  value?: string;
-  labelPosition: "top" | "side";
-  popUpDestination: "info" | "question";
-  onChange: (data: React.ChangeEvent<HTMLInputElement>) => void;
+  label?: string,
+  type: string,
+  showPopUpInfo?: boolean,
+  showPopUpQuestion?: boolean,
+  popUpText?: string,
+  questionText: string
+  value?: string,
+  onChange: (data: React.ChangeEvent<HTMLInputElement>) => void,
+  onChangeIconBefore: (data: React.ChangeEvent<HTMLInputElement>) => void,
+  onChangeIconAfter: (data: React.ChangeEvent<HTMLInputElement>) => void,
 }
 
 type Action =
@@ -41,7 +43,8 @@ type Action =
           | ((data: React.ChangeEvent<HTMLInputElement>) => void);
       };
     }
-  | { type: ACTIONS.SET_SHOW_POPUP; payload: boolean }
+  | { type: ACTIONS.SET_SHOW_POPUP_INFO; payload: boolean }
+  | { type: ACTIONS.SET_SHOW_POPUP_QUESTION; payload: boolean }
   | { type: ACTIONS.SET_INPUT_VALUE; payload: string };
 
 type State = {
@@ -56,10 +59,15 @@ function reducer(state: App, action: Action) {
         ...state,
         [action.payload.key]: action.payload.value,
       };
-    case ACTIONS.SET_SHOW_POPUP:
+    case ACTIONS.SET_SHOW_POPUP_INFO:
       return {
         ...state,
-        showPopUp: action.payload,
+        showPopUpInfo: action.payload,
+      };
+    case ACTIONS.SET_SHOW_POPUP_QUESTION:
+      return {
+        ...state,
+        showPopUpQuestion: action.payload,
       };
     case ACTIONS.SET_INPUT_VALUE:
       return {
@@ -85,12 +93,14 @@ const initialState: State = {
     },
     label: "",
     type: "",
-    showPopUp: false,
+    showPopUpInfo: false,
+    showPopUpQuestion: false,
     popUpText: "",
+    questionText: "",
     value: "",
-    labelPosition: "top",
-    popUpDestination: "info",
-    onChange: () => {},
+    onChange: () => { },
+    onChangeIconBefore: () => {},
+    onChangeIconAfter: () => {},
   },
   dispatch: () => {},
 };
