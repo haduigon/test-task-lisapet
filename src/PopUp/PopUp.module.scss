@@ -1,0 +1,31 @@
+.box {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-family: Inter, sans-serif;
+  top: 5px;
+  width: max-content;
+}
+
+.tooltip {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 8px 10px;
+  border-radius: 4px;
+  position: relative;
+  font-size: 8px;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}

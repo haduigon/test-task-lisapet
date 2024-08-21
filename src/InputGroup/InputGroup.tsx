@@ -19,6 +19,7 @@ type Props = {
   },
   label?: string,
   annotation?: string,
+  type?: string,
   onChange?: (data: any) => void,
 }
 
@@ -35,8 +36,6 @@ const InputGroup: React.FC<Props> = ({...args}) => {
       }
     }
   }, []);
-
-  
 
   return (
     <div className={styles.box}>

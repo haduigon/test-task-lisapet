@@ -14,11 +14,11 @@ interface App {
   shortKey?: boolean;
   isRequired?: {
     required: boolean;
-    type: string;
+    type?: string;
   };
   label?: string;
+  type: string;
   onChange: (data: any) => void,
-  // [key: string]: boolean | string | { required: boolean; type: string; } | undefined;
 }
 
 type Action =
@@ -67,6 +67,7 @@ const initialState: State = {
       type: "",
     },
     label: "",
+    type: '',
     onChange: () => {}
   },
   dispatch: () => {},
