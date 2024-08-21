@@ -1,4 +1,4 @@
-import questionIconGrey from "../../assets/icons/questionIconGrey.png";
+import questionIconGrey from "../assets/icons/questionIconGrey.png";
 import styles from './QuestionIcon.module.scss';
 
 const QuestionIcon = () => {

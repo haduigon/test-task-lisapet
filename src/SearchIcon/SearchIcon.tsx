@@ -1,4 +1,4 @@
-import searchIconGrey from "../../assets/icons/searchIconGrey.png";
+import searchIconGrey from "../assets/icons/searchIconGrey.png";
 import styles from './SearcIcon.module.scss';
 
 const SearchIcon = () => {

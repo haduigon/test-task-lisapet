@@ -7,7 +7,7 @@ import { AppStateContext } from "../AppStateContext/AppStateContext";
 import { ACTIONS } from "../helpers/utils";
 
 type Props = {
-  size?: string,
+  size?: 's' | 'm' | 'l' | 'xl',
   alignment?: string,
   border?: boolean,
   iconBefore?: boolean,
@@ -22,7 +22,7 @@ type Props = {
   type?: string,
   showPopUp?: boolean,
   popUpText?: string,
-  onChange?: (data: any) => void,
+  onChange?: (data: React.ChangeEvent<HTMLInputElement>) => void,
 }
 
 const InputGroup: React.FC<Props> = ({...args}) => {

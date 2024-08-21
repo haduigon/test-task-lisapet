@@ -1,9 +1,9 @@
-import infoIcon from '../../assets/icons/infoIcon.png';
+import infoIcon from '../assets/icons/infoIcon.png';
 import styles from './InfoIcon.module.scss';
-import PopUp from '../../PopUp';
+import PopUp from '../PopUp';
 import { useContext } from 'react';
-import { AppStateContext } from '../../AppStateContext/AppStateContext';
-import { ACTIONS } from '../../helpers/utils';
+import { AppStateContext } from '../AppStateContext/AppStateContext';
+import { ACTIONS } from '../helpers/utils';
 
 const InfoIcon = () => {
 

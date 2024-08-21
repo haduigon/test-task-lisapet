@@ -19,7 +19,8 @@ interface App {
   type: string;
   showPopUp?: boolean,
   popUpText?: string,
-  onChange: (data: any) => void,
+  value?: string
+  onChange: (data: React.ChangeEvent<HTMLInputElement>) => void,
 }
 
 type Action =
@@ -34,10 +35,11 @@ type Action =
               required: boolean;
               type: string;
         } | undefined
-          | ((data: any) => void);
+          | ((data: React.ChangeEvent<HTMLInputElement>) => void);
       }
   }
   | { type: ACTIONS.SET_SHOW_POPUP, payload: boolean }
+  | { type: ACTIONS.SET_INPUT_VALUE, payload: string }
 
 type State = {
   state: App;
@@ -55,6 +57,11 @@ function reducer(state: App, action: Action) {
       return {
         ...state,
         showPopUp: action.payload,
+      };
+    case ACTIONS.SET_INPUT_VALUE:
+      return {
+        ...state,
+        value: action.payload,
       };
   }
 }
@@ -77,6 +84,7 @@ const initialState: State = {
     type: '',
     showPopUp: false,
     popUpText: '',
+    value: '',
     onChange: () => {}
   },
   dispatch: () => {},

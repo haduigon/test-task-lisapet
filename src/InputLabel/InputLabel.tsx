@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import InfoIcon from "./InfoIcon/InfoIcon";
+import InfoIcon from "../InfoIcon/InfoIcon";
 import styles from './InputLabel.module.scss';
 import { AppStateContext } from "../AppStateContext/AppStateContext";
 
 const InputLabel = () => {
 
   const { state } = useContext(AppStateContext);
-  console.log(state, 'tate into input label');
+  // console.log(state, 'tate into input label');
   
   return (
     <label
