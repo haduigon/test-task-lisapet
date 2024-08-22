@@ -16,7 +16,10 @@ const InputLabel = () => {
       })}
       htmlFor={state.inputId}
     >
-      {state.label}
+      {state.isRequired.text.length > 0
+        ? state.label + ' ' + state.isRequired.text
+        : state.label
+      }
       <InfoIcon />
     </label>
   )

@@ -15,10 +15,11 @@ function App() {
           type="email"
           label="Email"
           annotation="This is a new hint"
-          size="s"
+          size="xl"
           isRequired={{
             required: true,
             type: "icon",
+            text: '(optional)',
           }}
           onChange={(event) => handleChange(event)}
           popUpText="This is a tooltip"

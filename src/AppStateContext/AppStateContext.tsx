@@ -11,9 +11,10 @@ interface App {
   iconBefore?: boolean,
   iconAfter?: boolean,
   shortKey?: boolean,
-  isRequired?: {
+  isRequired: {
     required: boolean,
     type?: string,
+    text: string,
   };
   label?: string,
   type: string,
@@ -97,6 +98,7 @@ const initialState: State = {
     isRequired: {
       required: false,
       type: "",
+      text: "",
     },
     label: "",
     type: "",

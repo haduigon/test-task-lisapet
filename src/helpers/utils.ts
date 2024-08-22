@@ -25,16 +25,17 @@ export function useHandleChange() {
 }
 
 export function useValidate() {
-  const { dispatch } = useContext(AppStateContext);
+  const { state, dispatch } = useContext(AppStateContext);
 
   const validateInput = useCallback(
     (data: React.ChangeEvent<HTMLInputElement>) => {
-      if (!data.target.checkValidity()) {
+      const isRequiredAndEmpty = state.isRequired && data.target.value.length === 0;
+      if (!data.target.checkValidity() || isRequiredAndEmpty) {
         dispatch({ type: ACTIONS.SET_ERROR, payload: true });
       } else {
         dispatch({ type: ACTIONS.SET_ERROR, payload: false });
       }
-    }, [dispatch]
+    }, [dispatch, state]
   );
 
   return validateInput;

@@ -16,6 +16,7 @@ type Props = {
   isRequired?: {
     required: boolean,
     type: string,
+    text: string,
   },
   label?: string,
   annotation?: string,
@@ -31,6 +32,7 @@ type Props = {
 
 const InputGroup: React.FC<Props> = ({...args}) => {
   const { dispatch } = useContext(AppStateContext);
+  
   useEffect(() => {
     if (Object.keys(args).length > 0) {
       for (const property in args) {
