@@ -46,6 +46,12 @@ input::placeholder {
   transition: 0.3s ease;
 }
 
+.errorBox:focus-within {
+  border-color: #F04438;
+  box-shadow: #FDA29B 0px 0px 0px 2px;
+  transition: 0.3s ease;
+}
+
 .innerBox {
   margin: 0 10px 0;
 }
@@ -61,4 +67,16 @@ input::placeholder {
 }
 .innerBoxXL {
   margin: 12px 10px 12px;
+}
+
+.errorBox {
+  // border-color: #F04438;
+  // box-shadow: #FDA29B 0px 0px 0px 2px;
+  transition: 0.3s ease;
+  display: flex;
+  align-items: center;
+  border: 1px solid #F04438;;
+  border-radius: 3px;
+  width: fit-content;
+  box-sizing: border-box;
 }

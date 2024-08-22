@@ -45,9 +45,9 @@ const InputGroup: React.FC<Props> = ({...args}) => {
 
   return (
     <div className={styles.box}>
-      {/* <InputLabel /> */}
+      <InputLabel />
       <InputText />
-      {/* <InputAnnotation /> */}
+      <InputAnnotation />
     </div>
   )
 }

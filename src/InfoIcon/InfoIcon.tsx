@@ -10,15 +10,17 @@ const InfoIcon = () => {
   const {state, dispatch} = useContext(AppStateContext)
   
   return (
-    <div className='centered-flex ml-5'>
+    <div className={`centered-flex ml-5 `}>
       {state.showPopUpInfo && <PopUp />}
-      <img
+      {/* <div className='centered-flex'>  */}
+        <img
         src={infoIcon}
         alt='info-icon'
         className={styles.infoIcon}
         onMouseOver={() => dispatch({ type: ACTIONS.SET_SHOW_POPUP_INFO, payload: true })}
         onMouseOut={() => dispatch({ type: ACTIONS.SET_SHOW_POPUP_INFO, payload: false })}
       />
+      {/* </div> */}
     </div>
   )
 }

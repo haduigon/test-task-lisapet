@@ -10,7 +10,7 @@ const InputLabel = () => {
   
   return (
     <label
-      className={classNames('mb-4', {
+      className={classNames(`mb-4 ${styles.labelBox}`, {
         [styles.textSmall]: state.size === 's' || state.size === 'm',
         [styles.textBig]: state.size === 'l' || state.size === 'xl',
       })}

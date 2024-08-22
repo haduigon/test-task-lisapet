@@ -22,6 +22,7 @@ interface App {
   popUpText?: string,
   questionText: string
   value?: string,
+  hasError: boolean,
   onChange: (data: React.ChangeEvent<HTMLInputElement>) => void,
   onChangeIconBefore: (data: React.ChangeEvent<HTMLInputElement>) => void,
   onChangeIconAfter: (data: React.ChangeEvent<HTMLInputElement>) => void,
@@ -45,7 +46,8 @@ type Action =
     }
   | { type: ACTIONS.SET_SHOW_POPUP_INFO; payload: boolean }
   | { type: ACTIONS.SET_SHOW_POPUP_QUESTION; payload: boolean }
-  | { type: ACTIONS.SET_INPUT_VALUE; payload: string };
+  | { type: ACTIONS.SET_INPUT_VALUE; payload: string }
+  | { type: ACTIONS.SET_ERROR; payload: boolean }
 
 type State = {
   state: App;
@@ -74,6 +76,11 @@ function reducer(state: App, action: Action) {
         ...state,
         value: action.payload,
       };
+    case ACTIONS.SET_ERROR:
+      return {
+        ...state,
+        hasError: action.payload,
+      };
   }
 }
 
@@ -98,6 +105,7 @@ const initialState: State = {
     popUpText: "",
     questionText: "",
     value: "",
+    hasError: false,
     onChange: () => { },
     onChangeIconBefore: () => {},
     onChangeIconAfter: () => {},
