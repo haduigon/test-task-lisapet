@@ -5,10 +5,7 @@ import { useDisable } from "./helpers/utils";
 
 function App() {
 
-  const disable = useDisable();
- 
   function handleChange(data: React.ChangeEvent<HTMLInputElement>) {
-    // disable(true)
     console.log(
       data.target.value,
       "it is a passed through props handle change func"
@@ -30,12 +27,12 @@ function App() {
           }}
           onChange={(event) => handleChange(event)}
           popUpText="This is a tooltip"
-          // iconBefore={true}
+          iconBefore={true}
           // iconAfter={true}
           // shortKey={true}
           // disabled={true}
           // darkMode={true}
-          labelSidePosition={true}
+          // labelSidePosition={true}
         />
       </div>
     </div>

@@ -10,7 +10,6 @@ const TextIcon = () => {
       className={classNames(`${styles.iconTextBox}`, {
         [styles.dark]: state.darkMode,
       })}
-      // className={`${styles.iconTextBox}`}
     >
       <span className={styles.iconText}>⌘</span>
       <span className={styles.iconText}>K</span>

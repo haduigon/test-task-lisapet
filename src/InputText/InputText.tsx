@@ -2,11 +2,10 @@ import styles from "./InputText.module.scss";
 import SearchIcon from "../SearchIcon";
 import QuestionIcon from "../QuestionIcon";
 import TextIcon from "../TextIcon";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { AppStateContext } from "../AppStateContext/AppStateContext";
-import { useHandleChange, useValidate, useDisable } from "../helpers/utils";
+import { useHandleChange, useValidate } from "../helpers/utils";
 import classNames from "classnames";
-// import InputAnnotation from "../InputAnnotation";
 
 const InputText = () => {
   const { state } = useContext(AppStateContext);
@@ -14,8 +13,6 @@ const InputText = () => {
   const handleInput = useHandleChange();
 
   const onBlurValidate = useValidate();
-
-  // console.log(disable(), 'disable');
 
   return (
       <div
