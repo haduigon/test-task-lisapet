@@ -5,6 +5,7 @@ import styles from './InputGroup.module.scss';
 import { useContext, useEffect } from "react";
 import { AppStateContext } from "../AppStateContext/AppStateContext";
 import { ACTIONS } from "../helpers/utils";
+import classNames from "classnames";
 
 type Props = {
   size?: 's' | 'm' | 'l' | 'xl',
@@ -25,13 +26,19 @@ type Props = {
   showPopUpQuestion?: boolean,
   popUpText?: string,
   questionText?: string,
+  labelSidePosition?: boolean,
+  disabled?: boolean,
+  darkMode?: boolean,
   onChange?: (data: React.ChangeEvent<HTMLInputElement>) => void,
   onChangeIconBefore?: (data: React.ChangeEvent<HTMLInputElement>) => void,
   onChangeIconAfter?: (data: React.ChangeEvent<HTMLInputElement>) => void,
 }
 
 const InputGroup: React.FC<Props> = ({...args}) => {
-  const { dispatch } = useContext(AppStateContext);
+  const { state, dispatch } = useContext(AppStateContext);
+
+  const showAnnotation = state?.annotation?.length > 0 && !state.labelSidePosition;
+  console.log(state.disabled, 'disabled buttom');
   
   useEffect(() => {
     if (Object.keys(args).length > 0) {
@@ -46,10 +53,15 @@ const InputGroup: React.FC<Props> = ({...args}) => {
   }, []);
 
   return (
-    <div className={styles.box}>
+    <div
+      className={classNames({
+        [styles.box]: !state.labelSidePosition,
+        [styles.sideBox]: state.labelSidePosition,
+      })}
+    >
       <InputLabel />
       <InputText />
-      <InputAnnotation />
+      {showAnnotation && <InputAnnotation />}
     </div>
   )
 }

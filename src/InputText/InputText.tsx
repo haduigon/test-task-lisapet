@@ -2,10 +2,11 @@ import styles from "./InputText.module.scss";
 import SearchIcon from "../SearchIcon";
 import QuestionIcon from "../QuestionIcon";
 import TextIcon from "../TextIcon";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AppStateContext } from "../AppStateContext/AppStateContext";
-import { useHandleChange, useValidate } from "../helpers/utils";
+import { useHandleChange, useValidate, useDisable } from "../helpers/utils";
 import classNames from "classnames";
+// import InputAnnotation from "../InputAnnotation";
 
 const InputText = () => {
   const { state } = useContext(AppStateContext);
@@ -14,11 +15,15 @@ const InputText = () => {
 
   const onBlurValidate = useValidate();
 
+  // console.log(disable(), 'disable');
+
   return (
-    <div
-      className={classNames(`mb-4 `, {
-        [styles.box]: !state.hasError,
-        [styles.errorBox]: state.hasError,
+      <div
+      className={classNames(styles.box, {
+        [styles.errorBox]: state.hasError && !state.darkMode,
+        [styles.boxDark]: state.darkMode && !state.hasError,
+        [styles.errorBoxDark]: state.darkMode && state.hasError,
+        'mb-4': !state.labelSidePosition,
       })}
       tabIndex={0}
     >
@@ -33,20 +38,25 @@ const InputText = () => {
           id={state.inputId}
           type={state.type}
           placeholder="Input..."
-          className={classNames(`ml-5`, {
+          className={classNames(`ml-5 ${styles.input} text`, {
             [styles.text]: state.size === 's' || state.size === 'm',
             [styles.textBig]: state.size === 'l' || state.size === 'xl',
+            [styles.container]: state.labelSidePosition,
+            [styles.inputDark]: state.darkMode,
           })}
           value={state.value}
           onChange={(event) => handleInput(event)}
           onBlur={(event) => onBlurValidate(event)}
+          disabled={state.disabled}
         />
         <div className="centered-flex ml-5">
           {state.iconAfter && <QuestionIcon />}
           {state.shortKey && <TextIcon />}
         </div>
       </div>
-    </div>
+
+
+      </div>
   );
 };
 

@@ -1,4 +1,5 @@
 import infoIcon from '../assets/icons/infoIcon.png';
+import infoIconDark from '../assets/icons/infoIconDark.png';
 import styles from './InfoIcon.module.scss';
 import PopUp from '../PopUp';
 import { useContext } from 'react';
@@ -14,7 +15,7 @@ const InfoIcon = () => {
       {state.showPopUpInfo && <PopUp />}
       {/* <div className='centered-flex'>  */}
         <img
-        src={infoIcon}
+        src={state.darkMode ? infoIconDark : infoIcon}
         alt='info-icon'
         className={styles.infoIcon}
         onMouseOver={() => dispatch({ type: ACTIONS.SET_SHOW_POPUP_INFO, payload: true })}

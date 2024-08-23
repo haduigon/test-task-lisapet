@@ -4,7 +4,7 @@ import { ACTIONS, inputId } from "../helpers/utils";
 
 interface App {
   inputId: string,
-  annotation?: string,
+  annotation: string,
   size?: "s" | "m" | "l" | "xl",
   alignment?: "left" | "right",
   border?: boolean,
@@ -16,14 +16,17 @@ interface App {
     type?: string,
     text: string,
   };
-  label?: string,
+  label: string,
   type: string,
   showPopUpInfo?: boolean,
   showPopUpQuestion?: boolean,
-  popUpText?: string,
+  popUpText: string,
   questionText: string
   value?: string,
   hasError: boolean,
+  labelSidePosition: boolean,
+  disabled: boolean,
+  darkMode: boolean,
   onChange: (data: React.ChangeEvent<HTMLInputElement>) => void,
   onChangeIconBefore: (data: React.ChangeEvent<HTMLInputElement>) => void,
   onChangeIconAfter: (data: React.ChangeEvent<HTMLInputElement>) => void,
@@ -49,6 +52,7 @@ type Action =
   | { type: ACTIONS.SET_SHOW_POPUP_QUESTION; payload: boolean }
   | { type: ACTIONS.SET_INPUT_VALUE; payload: string }
   | { type: ACTIONS.SET_ERROR; payload: boolean }
+  | { type: ACTIONS.SET_DISABLE; payload: boolean }
 
 type State = {
   state: App;
@@ -82,6 +86,11 @@ function reducer(state: App, action: Action) {
         ...state,
         hasError: action.payload,
       };
+    case ACTIONS.SET_DISABLE:
+      return {
+        ...state,
+        disabled: action.payload,
+      };
   }
 }
 
@@ -108,6 +117,9 @@ const initialState: State = {
     questionText: "",
     value: "",
     hasError: false,
+    labelSidePosition: false,
+    disabled: false,
+    darkMode: false,
     onChange: () => { },
     onChangeIconBefore: () => {},
     onChangeIconAfter: () => {},

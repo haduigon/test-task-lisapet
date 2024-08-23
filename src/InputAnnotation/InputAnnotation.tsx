@@ -9,9 +9,12 @@ const InputAnnotation = () => {
     <div>
       <p
         className={classNames(styles.text, {
-          [styles.textError]: state.hasError,
+          [styles.textError]: state.hasError && !state.darkMode,
+          [styles.disabled]: state.disabled && !state.darkMode,
+          [styles.textDark]: state.darkMode,
+          [styles.textErrorDark]: state.darkMode && state.hasError,
+          [styles.disabledDark]: state.darkMode && state.disabled,
         })}
-        // className={styles.text}
       >
         {state.annotation}
       </p>

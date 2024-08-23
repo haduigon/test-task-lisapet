@@ -1,16 +1,15 @@
 import { useContext } from "react";
-import searchIconGrey from "../assets/icons/searchIconGrey.png";
-import searchIconRed from "../assets/icons/searchIconRed.png";
 import styles from './SearcIcon.module.scss';
 import { AppStateContext } from "../AppStateContext/AppStateContext";
+import { useQuestionIqonHook } from "../helpers/utils";
 
 const SearchIcon = () => {
   const { state } = useContext(AppStateContext);
-
+  const chooseIcon = useQuestionIqonHook('search')
   return (
     <div className="centered-flex">
       <img
-        src={state.hasError ? searchIconRed : searchIconGrey}
+        src={chooseIcon()}
         className={styles.searchIcon}
         alt="search-icon"
       />

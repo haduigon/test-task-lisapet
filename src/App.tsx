@@ -1,31 +1,41 @@
+import { useEffect } from "react";
 import "./App.scss";
 import InputGroup from "./InputGroup";
+import { useDisable } from "./helpers/utils";
 
 function App() {
+
+  const disable = useDisable();
+ 
   function handleChange(data: React.ChangeEvent<HTMLInputElement>) {
+    // disable(true)
     console.log(
       data.target.value,
       "it is a passed through props handle change func"
-    );
+    ); 
   }
   return (
     <div className="App">
+
       <div className="ml-5">
         <InputGroup
           type="email"
           label="Email"
           annotation="This is a new hint"
-          size="xl"
+          size="s"
           isRequired={{
-            required: true,
+            required: false,
             type: "icon",
-            text: '(optional)',
+            text: '',
           }}
           onChange={(event) => handleChange(event)}
           popUpText="This is a tooltip"
-          iconBefore={true}
-          iconAfter={true}
-          shortKey={true}
+          // iconBefore={true}
+          // iconAfter={true}
+          // shortKey={true}
+          // disabled={true}
+          // darkMode={true}
+          labelSidePosition={true}
         />
       </div>
     </div>
