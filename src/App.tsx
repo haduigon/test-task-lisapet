@@ -2,6 +2,7 @@
 import { useState } from "react";
 import "./App.scss";
 import InputGroup from "./InputGroup";
+import classNames from "classnames";
 // import { useDisable } from "./helpers/utils";
 
 const defaultState = {
@@ -40,7 +41,6 @@ function App() {
 
 
       if (event.target.name.startsWith('isRequired.')) {
-    // Handle nested property update for isRequired
     const nestedKey = event.target.name.split('.')[1] as keyof typeof props['isRequired'];
 
     setProps((prevState) => ({
@@ -71,7 +71,12 @@ function App() {
   return (
     <div>
       {/* <div> */}
-      <div className="ml-5 centered-flex black">
+      <div
+        className={classNames('ml-5 centered-flex back', {
+          'black': props.darkMode,
+        })}
+        // className="ml-5 centered-flex black"
+      >
         <InputGroup
           type={props.type}
           label="Email"
@@ -84,7 +89,7 @@ function App() {
           iconAfter={true}
           shortKey={true}
           disabled={props.disabled}
-          // darkMode={true}
+          darkMode={props.darkMode}
           labelSidePosition={props.labelSidePosition}
         />
       </div>
@@ -141,7 +146,7 @@ function App() {
             </fieldset>
 
             <label htmlFor="size" className="ml-5">
-              <strong className="ml-5">Input type prop</strong>
+              <strong className="ml-5">size prop</strong>
             </label>
           </div>
           <div className="mt-10">
@@ -203,12 +208,22 @@ function App() {
             <input
               type="checkbox"
               name="labelSidePosition"
-              // value={!props.isRequired.required}
-              // checked={props.isRequired.required}
               onChange={(event) => handleProps(event)}
               className="small"
-            />
-        
+            />        
+          </div>
+        </div>
+       
+        <div className="mt-10 ml-5 ww">
+          <div className="darkMode">
+            <strong className="">darkMode prop</strong>
+            <p>By default it is false, click to make it true. If you are using a lib, you need a black background color</p>
+            <input
+              type="checkbox"
+              name="darkMode"
+              onChange={(event) => handleProps(event)}
+              className="small"
+            />        
           </div>
         </div>
 
