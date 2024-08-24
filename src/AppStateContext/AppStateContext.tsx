@@ -18,6 +18,7 @@ interface App {
   };
   label: string,
   type: string,
+  placeholder?: string,
   showPopUpInfo?: boolean,
   showPopUpQuestion?: boolean,
   popUpText: string,

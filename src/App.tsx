@@ -166,7 +166,8 @@ function App() {
 
         <div className="mt-10 ml-5 ww">
           <div className="isRequired">
-
+            <strong className="">isRequired prop</strong>
+            <p> If field is required you cannot leave it empty</p>
             <input
               type="checkbox"
               name="isRequired.required"
@@ -175,6 +176,7 @@ function App() {
               onChange={(event) => handleProps(event)}
               className="small"
             />
+            <p>Input 'icon' or 'text'</p>
             <input
               type="text"
               name="isRequired.type" 
@@ -182,6 +184,7 @@ function App() {
               onChange={(event) => handleProps(event)}
               className="mt-10 small-input"
             />
+            <p>Input the text of required f</p>
             <input
               type="text"
               name="isRequired.text"

@@ -29,6 +29,7 @@ type Props = {
   labelSidePosition?: boolean,
   disabled?: boolean,
   darkMode?: boolean,
+  placeholder?: string,
   onChange?: (data: React.ChangeEvent<HTMLInputElement>) => void,
   onChangeIconBefore?: (data: React.ChangeEvent<HTMLInputElement>) => void,
   onChangeIconAfter?: (data: React.ChangeEvent<HTMLInputElement>) => void,

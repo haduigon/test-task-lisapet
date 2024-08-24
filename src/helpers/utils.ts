@@ -40,7 +40,7 @@ export function useValidate() {
 
   const validateInput = useCallback(
     (data: React.ChangeEvent<HTMLInputElement>) => {
-      const isRequiredAndEmpty = state.isRequired && data.target.value.length === 0;
+      const isRequiredAndEmpty = state.isRequired.required && data.target.value.length === 0;
       if (!data.target.checkValidity() || isRequiredAndEmpty) {
         dispatch({ type: ACTIONS.SET_ERROR, payload: true });
       } else {
