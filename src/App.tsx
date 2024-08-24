@@ -56,7 +56,7 @@ function App() {
     console.log(props[id], "id", event.target.id);
     setProps((prevState) => ({
       ...prevState,
-      [id]: event.target.value,
+      [id]: event.target.type === 'checkbox' ? event.target.checked : event.target.value,
     }));
   }
 
@@ -71,7 +71,7 @@ function App() {
   return (
     <div>
       {/* <div> */}
-      <div className="ml-5 centered-flex">
+      <div className="ml-5 centered-flex black">
         <InputGroup
           type={props.type}
           label="Email"
@@ -85,7 +85,7 @@ function App() {
           shortKey={true}
           disabled={props.disabled}
           // darkMode={true}
-          // labelSidePosition={true}
+          labelSidePosition={props.labelSidePosition}
         />
       </div>
       {/* </div> */}
@@ -160,7 +160,7 @@ function App() {
           />
           <label htmlFor="annotation" className="mt-10">
             <strong className="ml-5">Annotation text prop</strong>
-            <p> Input the text you want to see as a hint</p>
+            <p> Input the text you want to see as a hint. It does not work if labelSidePosition is true</p>
           </label>
         </div>
 
@@ -194,6 +194,27 @@ function App() {
             />
           </div>
         </div>
+
+
+        <div className="mt-10 ml-5 ww">
+          <div className="labelSidePosition">
+            <strong className="">labelSidePosition prop</strong>
+            <p>By default it is false, click to make it true</p>
+            <input
+              type="checkbox"
+              name="labelSidePosition"
+              // value={!props.isRequired.required}
+              // checked={props.isRequired.required}
+              onChange={(event) => handleProps(event)}
+              className="small"
+            />
+        
+          </div>
+        </div>
+
+
+
+
       </div>
     </div>
   );
