@@ -5,7 +5,9 @@ import { useQuestionIqonHook } from "../helpers/utils";
 
 const SearchIcon = () => {
   const { state } = useContext(AppStateContext);
-  const chooseIcon = useQuestionIqonHook('search')
+  const chooseIcon = useQuestionIqonHook('search');
+  console.log(chooseIcon());
+  
   return (
     <div className="centered-flex">
       <img

@@ -6,6 +6,7 @@ import questionIconGreyDisabled from "../assets/icons/questionIconGreyDisabled.p
 import questionIconGreyDark from "../assets/icons/questionIconGreyDark.png";
 import questionIconRedDark from "../assets/icons/questionIconRedDark.png";
 import searchIconGrey from "../assets/icons/searchIconGrey.png";
+import searchIconGreyDisabled from "../assets/icons/searchIconGreyDisabled.png";
 import searchIconRed from "../assets/icons/searchIconRed.png";
 import searchIconRedDark from "../assets/icons/searchIconRedDark.png";
 import searchIconGreyDark from "../assets/icons/searchIconGreyDark.png";
@@ -75,11 +76,12 @@ const iconMap: IconMap = {
   searchIconRed,
   searchIconRedDark,
   searchIconGreyDark,
+  searchIconGreyDisabled,
 };
 
 export function useQuestionIqonHook(iconName: any) {
     const { state } = useContext(AppStateContext);
-  console.log(state);
+  console.log(state, iconName);
   
   const chosenQuestionIqon = useCallback(() => {
     if (state.darkMode) {

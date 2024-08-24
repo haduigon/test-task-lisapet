@@ -1,10 +1,9 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import "./App.scss";
 import InputGroup from "./InputGroup";
-import { useDisable } from "./helpers/utils";
+// import { useDisable } from "./helpers/utils";
 
 function App() {
-
   function handleChange(data: React.ChangeEvent<HTMLInputElement>) {
     console.log(
       data.target.value,
@@ -12,9 +11,10 @@ function App() {
     ); 
   }
   return (
-    <div className="App">
+    <div >
 
-      <div className="ml-5">
+      {/* <div> */}
+         <div className="ml-5">
         <InputGroup
           type="email"
           label="Email"
@@ -28,13 +28,18 @@ function App() {
           onChange={(event) => handleChange(event)}
           popUpText="This is a tooltip"
           iconBefore={true}
-          // iconAfter={true}
-          // shortKey={true}
-          // disabled={true}
+          iconAfter={true}
+          shortKey={true}
+          disabled={true}
           // darkMode={true}
-          // labelSidePosition={true}
+          labelSidePosition={true}
         />
       </div>
+     {/* </div> */}
+
+     <div className="control"></div>
+
+
     </div>
   );
 }

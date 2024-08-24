@@ -7,11 +7,13 @@ const PopUp = () => {
   const { state } = useContext(AppStateContext);
   
   return (
-    <div className={classNames(styles.box, {
+    <div className={styles.container}>
+      <div className={classNames(styles.box, {
       [styles.boxQuestion]: state.showPopUpQuestion,
       [styles.boxInfo]: state.showPopUpInfo
     })}>
       <div className={styles.tooltip}>{state.popUpText}</div>
+    </div>
     </div>
   )
 }
