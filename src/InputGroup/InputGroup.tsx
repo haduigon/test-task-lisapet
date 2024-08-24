@@ -38,7 +38,7 @@ const InputGroup: React.FC<Props> = ({...args}) => {
   const { state, dispatch } = useContext(AppStateContext);
 
   const showAnnotation = state?.annotation?.length > 0 && !state.labelSidePosition;
-  console.log(state.disabled, 'disabled buttom');
+  console.log(args,'state insaide InputGroup');
   
   useEffect(() => {
     if (Object.keys(args).length > 0) {
@@ -50,7 +50,7 @@ const InputGroup: React.FC<Props> = ({...args}) => {
         }  })
       }
     }
-  }, []);
+  }, [JSON.stringify(args), dispatch]);
 
   return (
     <div
