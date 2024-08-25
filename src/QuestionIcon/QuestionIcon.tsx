@@ -10,15 +10,15 @@ const QuestionIcon = () => {
   const chooseIcon = useQuestionIqonHook('question')
 
   return (
-    <>
-      {state.showPopUpQuestion && <PopUp />}
+    <div className={styles.box}>
+      {state.showPopUpQuestion && <PopUp text={state.questionText} />}
       <img
         src={chooseIcon()}
         className={styles.questionIcon}
         onMouseOver={() => dispatch({ type: ACTIONS.SET_SHOW_POPUP_QUESTION, payload: true })}
         onMouseOut={() => dispatch({ type: ACTIONS.SET_SHOW_POPUP_QUESTION, payload: false })}
       />
-    </>
+    </div>
   )
 }
 

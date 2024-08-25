@@ -20,12 +20,8 @@ const defaultState = {
   },
   label: "",
   type: "",
-  showPopUpInfo: false,
-  showPopUpQuestion: false,
   popUpText: "",
   questionText: "",
-  value: "",
-  hasError: false,
   labelSidePosition: false,
   disabled: false,
   darkMode: false,
@@ -79,18 +75,19 @@ function App() {
       >
         <InputGroup
           type={props.type}
-          label="Email"
+          label={props.label}
           annotation={props.annotation}
           size={props.size as "m" | "s" | "l" | "xl"}
           isRequired={props.isRequired}
           onChange={(event) => handleChange(event)}
-          popUpText="This is a tooltip"
-          iconBefore={true}
-          iconAfter={true}
-          shortKey={true}
+          popUpText={props.popUpText}
+          iconBefore={props.iconBefore}
+          iconAfter={props.iconAfter}
+          shortKey={props.shortKey}
           disabled={props.disabled}
           darkMode={props.darkMode}
           labelSidePosition={props.labelSidePosition}
+          questionText={props.questionText}
         />
       </div>
       {/* </div> */}
@@ -226,8 +223,87 @@ function App() {
             />        
           </div>
         </div>
+        
+        <div className="mt-10 ml-5 ww">
+          <div className="iconBefore">
+            <strong className="">iconBefore prop</strong>
+            <p>By default it is false, click to make it true. It is the icon before the input</p>
+            <input
+              type="checkbox"
+              name="iconBefore"
+              onChange={(event) => handleProps(event)}
+              className="small"
+            />        
+          </div>
+        </div>
+        
+        <div className="mt-10 ml-5 ww">
+          <div className="iconAfter">
+            <strong className="">iconAfter prop</strong>
+            <p>By default it is false, click to make it true. It is the icon after the input</p>
+            <input
+              type="checkbox"
+              name="iconAfter"
+              onChange={(event) => handleProps(event)}
+              className="small"
+            />        
+          </div>
+        </div>
+        
+        <div className="mt-10 ml-5 ww">
+          <div className="shortKey">
+            <strong className="">shortKey prop</strong>
+            <p>By default it is false, click to make it true. It is the icon after the input iconAfter</p>
+            <input
+              type="checkbox"
+              name="shortKey"
+              onChange={(event) => handleProps(event)}
+              className="small"
+            />        
+          </div>
+        </div>
 
-
+        <div className="mt-10 ml-5 ww">
+          <input
+            type="text"
+            id="label"
+            name="label"
+            value={props.label}
+            onChange={(event) => handleProps(event)}
+          />
+          <label htmlFor="label" className="mt-10">
+            <strong className="ml-5">Label text prop</strong>
+            <p> Input the text you want to see as a label on top or left.</p>
+          </label>
+        </div>
+        
+        <div className="mt-10 ml-5 ww">
+          <input
+            type="text"
+            id="popUpText"
+            name="popUpText"
+            value={props.popUpText}
+            onChange={(event) => handleProps(event)}
+          />
+          <label htmlFor="popUpText" className="mt-10">
+            <strong className="ml-5">InfoIcon text prop</strong>
+            <p> Input the text you want to see as a hit of infoIcon. Leave it empty if dont want to see the icon at all</p>
+          </label>
+        </div>
+        
+        <div className="mt-10 ml-5 ww">
+          <input
+            type="text"
+            id="questionText"
+            name="questionText"
+            value={props.questionText}
+            onChange={(event) => handleProps(event)}
+          />
+          <label htmlFor="questionText" className="mt-10">
+            <strong className="ml-5">questionText text prop</strong>
+            <p>If you have iconAfter props true, this propperty allows you to input a pop up text for the icon</p>
+          </label>
+        </div>
 
 
       </div>

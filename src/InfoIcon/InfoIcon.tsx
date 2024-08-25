@@ -11,8 +11,8 @@ const InfoIcon = () => {
   const {state, dispatch} = useContext(AppStateContext)
   
   return (
-    <div className={`centered-flex ml-5 `}>
-      {state.showPopUpInfo && <PopUp />}
+    <div className={`centered-flex ml-5 ${styles.box}`}>
+      {state.showPopUpInfo && <PopUp text={state.popUpText} />}
         <img
         src={state.darkMode ? infoIconDark : infoIcon}
         alt='info-icon'
