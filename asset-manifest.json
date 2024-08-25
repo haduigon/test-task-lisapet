@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e99226ee.css",
+    "main.js": "/static/js/main.9958632b.js",
+    "static/media/Inter-VariableFont.ttf": "/static/media/Inter-VariableFont.e05c5f3d1fa6a3893d84.ttf",
+    "static/media/questionIconRedDark.png": "/static/media/questionIconRedDark.a7f5f7920cac55f1f871.png",
+    "static/media/questionIconGreyDisabled.png": "/static/media/questionIconGreyDisabled.04e3c118df6f60c810c5.png",
+    "static/media/questionIconRed.png": "/static/media/questionIconRed.778e97c91f8e27216a28.png",
+    "static/media/infoIcon.png": "/static/media/infoIcon.f774b046d7370d72d615.png",
+    "static/media/questionIconGrey.png": "/static/media/questionIconGrey.d46aab96f1d7049e8dd7.png",
+    "static/media/searchIconRedDark.png": "/static/media/searchIconRedDark.4981026744cb0db571ee.png",
+    "static/media/searchIconGreyDisabled.png": "/static/media/searchIconGreyDisabled.8bcf95d3ae8c5fb4ed69.png",
+    "static/media/searchIconGreyDark.png": "/static/media/searchIconGreyDark.4a8a1652a81a0b79b865.png",
+    "static/media/searchIconRed.png": "/static/media/searchIconRed.a4b9a9d51869c2ccd2fc.png",
+    "static/media/infoIconDark.png": "/static/media/infoIconDark.3d567333f88908b08c61.png",
+    "static/media/searchIconGrey.png": "/static/media/searchIconGrey.a15662d09fd69b331d36.png",
+    "static/media/questionIconGreyDark.png": "/static/media/questionIconGreyDark.8f8219588360a6a11937.png",
+    "index.html": "/index.html",
+    "main.e99226ee.css.map": "/static/css/main.e99226ee.css.map",
+    "main.9958632b.js.map": "/static/js/main.9958632b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e99226ee.css",
+    "static/js/main.9958632b.js"
+  ]
+}
