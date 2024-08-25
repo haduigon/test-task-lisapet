@@ -35,7 +35,7 @@ const InputText = () => {
         <input
           id={state.inputId}
           type={state.type}
-          placeholder="Input..."
+          placeholder={state.placeholder}
           className={classNames(`ml-5 ${styles.input} text`, {
             [styles.text]: state.size === 's' || state.size === 'm',
             [styles.textBig]: state.size === 'l' || state.size === 'xl',

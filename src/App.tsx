@@ -1,4 +1,3 @@
-// import { useEffect } from "react";
 import { useEffect, useState } from "react";
 import "./App.scss";
 import InputGroup from "./InputGroup";
@@ -25,6 +24,7 @@ const defaultState = {
   labelSidePosition: false,
   disabled: false,
   darkMode: false,
+  placeholder: "Default",
   onChange: () => {},
 };
 
@@ -98,6 +98,7 @@ function App() {
           questionText={props.questionText}
           isAlignmentRight={props.isAlignmentRight}
           border={props.border}
+          placeholder={props.placeholder}
         />
       </div>
 
@@ -163,7 +164,7 @@ function App() {
 
         <div className="mt-10 ml-5 ww">
           <label htmlFor="annotation" className="mt-10">
-            <strong >Annotation text prop</strong>
+            <strong>Annotation text prop</strong>
             <p>
               {" "}
               Input the text you want to see as a hint. It does not work if
@@ -197,7 +198,7 @@ function App() {
               onChange={(event) => handleProps(event)}
               className="mt-10 small-input"
             />
-            <p>Input the text of required f</p>
+            <p>Input the text of required field.</p>
             <input
               type="text"
               name="isRequired.text"
@@ -211,7 +212,7 @@ function App() {
         <div className="mt-10 ml-5 ww">
           <div className="">
             <strong className="">labelSidePosition prop</strong>
-            <p>By default it is false, click to make it true</p>
+            <p>By default it is false, click to make it true. If you have annotation it will dissapear.</p>
             <input
               type="checkbox"
               name="labelSidePosition"
@@ -286,6 +287,10 @@ function App() {
         </div>
 
         <div className="mt-10 ml-5 ww">
+          <label htmlFor="label" className="mt-10">
+            <strong className="">Label text prop</strong>
+            <p> Input the text you want to see as a label on top or left.</p>
+          </label>
           <input
             type="text"
             id="label"
@@ -293,13 +298,17 @@ function App() {
             value={props.label}
             onChange={(event) => handleProps(event)}
           />
-          <label htmlFor="label" className="mt-10">
-            <strong className="ml-5">Label text prop</strong>
-            <p> Input the text you want to see as a label on top or left.</p>
-          </label>
         </div>
 
         <div className="mt-10 ml-5 ww">
+          <label htmlFor="popUpText" className="mt-10">
+            <strong className="">InfoIcon text and pop up prop prop</strong>
+            <p>
+              {" "}
+              Input the text you want to see as a hit of infoIcon. Leave it
+              empty if dont want to see the icon at all
+            </p>
+          </label>
           <input
             type="text"
             id="popUpText"
@@ -307,24 +316,9 @@ function App() {
             value={props.popUpText}
             onChange={(event) => handleProps(event)}
           />
-          <label htmlFor="popUpText" className="mt-10">
-            <strong className="ml-5">InfoIcon text prop</strong>
-            <p>
-              {" "}
-              Input the text you want to see as a hit of infoIcon. Leave it
-              empty if dont want to see the icon at all
-            </p>
-          </label>
         </div>
 
         <div className="mt-10 ml-5 ww">
-          <input
-            type="text"
-            id="questionText"
-            name="questionText"
-            value={props.questionText}
-            onChange={(event) => handleProps(event)}
-          />
           <label htmlFor="questionText" className="mt-10">
             <strong className="ml-5">questionText text prop</strong>
             <p>
@@ -332,6 +326,13 @@ function App() {
               input a pop up text for the icon
             </p>
           </label>
+          <input
+            type="text"
+            id="questionText"
+            name="questionText"
+            value={props.questionText}
+            onChange={(event) => handleProps(event)}
+          />
         </div>
 
         <div className="mt-10 ml-5 ww">
@@ -378,7 +379,8 @@ function App() {
           <div className="">
             <strong className="">isAlignmentRight prop</strong>
             <p>
-              By default it is false, click to make it true. Your input text will appear from the right 
+              By default it is false, click to make it true. Your input text
+              will appear from the right
             </p>
             <input
               type="checkbox"
@@ -390,10 +392,21 @@ function App() {
         </div>
 
         <div className="mt-10 ml-5 ww">
+          
+          <label htmlFor="placeholder" className="mt-10">
+            <strong className="">placeholder text prop</strong>
+            <p>
+              Just a placeholder, nothing more
+            </p>
+          </label>
+<input
+            type="text"
+            id="placeholder"
+            name="placeholder"
+            value={props.placeholder}
+            onChange={(event) => handleProps(event)}
+          />
         </div>
-
-
-
       </div>
     </div>
   );

@@ -122,6 +122,7 @@ const initialState: State = {
     labelSidePosition: false,
     disabled: false,
     darkMode: false,
+    placeholder: 'Deafult...',
     // infoIcon: false,
     onChange: () => { },
     // onChangeIconBefore: () => {},
