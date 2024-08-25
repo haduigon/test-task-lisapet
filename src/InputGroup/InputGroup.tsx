@@ -9,7 +9,7 @@ import classNames from "classnames";
 
 type Props = {
   size?: 's' | 'm' | 'l' | 'xl',
-  alignment?: string,
+  isAlignmentRight: boolean,
   border?: boolean,
   iconBefore?: boolean,
   iconAfter?: boolean,

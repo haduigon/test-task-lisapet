@@ -5,7 +5,11 @@
   border-radius: 3px;
   width: fit-content;
   box-sizing: border-box;
-  background-color: white;;
+  background-color: white;
+}
+
+.noBorder {
+  border: none;
 }
 
 .boxDark {
@@ -35,6 +39,10 @@
   background-color: white;
 }
 
+.reverse {
+  text-align: end;
+}
+
 .inputDark {
   background-color: #131316;
   color: #FAFAFA;
@@ -48,6 +56,7 @@
   color: #70707b;
   border: none;
   outline: none;
+  // text-align: end;
 }
 
 .inputDark::placeholder {

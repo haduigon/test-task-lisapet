@@ -4,17 +4,11 @@
   background-color: black;
   display: flex;
   justify-content: center;
-  // margin-top: 20%;
   flex-direction: column;
   align-items: center;
 }
 
-body {
-  // background-color: black;
-}
-
 .back {
-  // background-color: black;
   padding-bottom: 100px;
   padding-top: 100px;
   height: 100px;
@@ -31,12 +25,9 @@ body {
   flex-wrap: wrap;
   position: fixed;
   left: 0;
-  // width: 25%;
   font-family: Inter, sans-serif;
   font-weight: 300;
   font-size: 14px;
-  width: 100vw;
-  // height: 300px;
   margin-top: 50px;
   border-radius: 3px;
   border: 1px solid grey;
@@ -44,28 +35,20 @@ body {
 }
 
 .paragraph {
-  // display: flex;
-  // flex-direction: column;
-  // flex-wrap: wrap;
   text-wrap: wrap;
 }
 
 .ww {
   width: 20%;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: start;
 }
 
 fieldset {
-  // border: none;
   all: unset;
 }
 
 .size {
   display: flex;
   flex-wrap: wrap;
-  // justify-content: center;
 }
 
 .flex {

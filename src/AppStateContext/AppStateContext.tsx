@@ -6,7 +6,7 @@ interface App {
   inputId: string,
   annotation: string,
   size?: "s" | "m" | "l" | "xl",
-  alignment?: "left" | "right",
+  isAlignmentRight: boolean,
   border?: boolean,
   iconBefore?: boolean,
   iconAfter?: boolean,
@@ -30,8 +30,8 @@ interface App {
   darkMode: boolean,
   // infoIcon: boolean,
   onChange: (data: React.ChangeEvent<HTMLInputElement>) => void,
-  onChangeIconBefore: (data: React.ChangeEvent<HTMLInputElement>) => void,
-  onChangeIconAfter: (data: React.ChangeEvent<HTMLInputElement>) => void,
+  // onChangeIconBefore: (data: React.ChangeEvent<HTMLInputElement>) => void,
+  // onChangeIconAfter: (data: React.ChangeEvent<HTMLInputElement>) => void,
 }
 
 type Action =
@@ -101,7 +101,7 @@ const initialState: State = {
     inputId: inputId,
     annotation: "",
     size: "m",
-    alignment: "left",
+    isAlignmentRight: false,
     border: true,
     iconBefore: false,
     iconAfter: false,
@@ -124,8 +124,8 @@ const initialState: State = {
     darkMode: false,
     // infoIcon: false,
     onChange: () => { },
-    onChangeIconBefore: () => {},
-    onChangeIconAfter: () => {},
+    // onChangeIconBefore: () => {},
+    // onChangeIconAfter: () => {},
   },
   dispatch: () => {},
 };

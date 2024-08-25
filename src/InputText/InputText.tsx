@@ -21,6 +21,7 @@ const InputText = () => {
         [styles.boxDark]: state.darkMode && !state.hasError,
         [styles.errorBoxDark]: state.darkMode && state.hasError,
         'mb-4': !state.labelSidePosition,
+        [styles.noBorder]: !state.border,
       })}
       tabIndex={0}
     >
@@ -40,6 +41,7 @@ const InputText = () => {
             [styles.textBig]: state.size === 'l' || state.size === 'xl',
             [styles.container]: state.labelSidePosition,
             [styles.inputDark]: state.darkMode,
+            [styles.reverse]: state.isAlignmentRight,
           })}
           value={state.value}
           onChange={(event) => handleInput(event)}

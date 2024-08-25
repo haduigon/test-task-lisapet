@@ -1,14 +1,14 @@
 // import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.scss";
 import InputGroup from "./InputGroup";
 import classNames from "classnames";
-// import { useDisable } from "./helpers/utils";
+import { useDisable } from "./helpers/utils";
 
 const defaultState = {
   annotation: "",
   size: "m",
-  alignment: "left",
+  isAlignmentRight: false,
   border: true,
   iconBefore: false,
   iconAfter: false,
@@ -26,37 +26,40 @@ const defaultState = {
   disabled: false,
   darkMode: false,
   onChange: () => {},
-  onChangeIconBefore: () => {},
-  onChangeIconAfter: () => {},
 };
 
 function App() {
   const [props, setProps] = useState(defaultState);
+  const [disable, setDisable] = useState(false);
 
   function handleProps(event: React.ChangeEvent<HTMLInputElement>) {
+    if (event.target.name.startsWith("isRequired.")) {
+      const nestedKey = event.target.name.split(
+        "."
+      )[1] as keyof (typeof props)["isRequired"];
 
-
-      if (event.target.name.startsWith('isRequired.')) {
-    const nestedKey = event.target.name.split('.')[1] as keyof typeof props['isRequired'];
-
-    setProps((prevState) => ({
-      ...prevState,
-      isRequired: {
-        ...prevState.isRequired,
-        [nestedKey]: event.target.type === 'checkbox' ? event.target.checked : event.target.value,
-      },
-    }));
-  }
+      setProps((prevState) => ({
+        ...prevState,
+        isRequired: {
+          ...prevState.isRequired,
+          [nestedKey]:
+            event.target.type === "checkbox"
+              ? event.target.checked
+              : event.target.value,
+        },
+      }));
+    }
 
     const id = event.target.name as keyof typeof props;
     console.log(props[id], "id", event.target.id);
     setProps((prevState) => ({
       ...prevState,
-      [id]: event.target.type === 'checkbox' ? event.target.checked : event.target.value,
+      [id]:
+        event.target.type === "checkbox"
+          ? event.target.checked
+          : event.target.value,
     }));
   }
-
-  console.log(props, "propssssss");
 
   function handleChange(data: React.ChangeEvent<HTMLInputElement>) {
     console.log(
@@ -64,14 +67,19 @@ function App() {
       "it is a passed through props handle change func"
     );
   }
+
+  const dis = useDisable();
+
+  function disableInput() {
+    dis(!disable);
+    setDisable(!disable);
+  }
   return (
     <div>
-      {/* <div> */}
       <div
-        className={classNames('ml-5 centered-flex back', {
-          'black': props.darkMode,
+        className={classNames("centered-flex back mr-5", {
+          black: props.darkMode,
         })}
-        // className="ml-5 centered-flex black"
       >
         <InputGroup
           type={props.type}
@@ -88,12 +96,13 @@ function App() {
           darkMode={props.darkMode}
           labelSidePosition={props.labelSidePosition}
           questionText={props.questionText}
+          isAlignmentRight={props.isAlignmentRight}
+          border={props.border}
         />
       </div>
-      {/* </div> */}
 
-      <div className="control">
-        <div className="mt-10 ml-5 ww ">
+      <div className="control ml-5 mr-5">
+        <div className="mt-10 ww">
           <div className="size">
             <fieldset>
               <div className="flex">
@@ -153,6 +162,14 @@ function App() {
         </div>
 
         <div className="mt-10 ml-5 ww">
+          <label htmlFor="annotation" className="mt-10">
+            <strong >Annotation text prop</strong>
+            <p>
+              {" "}
+              Input the text you want to see as a hint. It does not work if
+              labelSidePosition is true
+            </p>
+          </label>
           <input
             type="text"
             id="annotation"
@@ -160,10 +177,6 @@ function App() {
             value={props.annotation}
             onChange={(event) => handleProps(event)}
           />
-          <label htmlFor="annotation" className="mt-10">
-            <strong className="ml-5">Annotation text prop</strong>
-            <p> Input the text you want to see as a hint. It does not work if labelSidePosition is true</p>
-          </label>
         </div>
 
         <div className="mt-10 ml-5 ww">
@@ -173,15 +186,13 @@ function App() {
             <input
               type="checkbox"
               name="isRequired.required"
-              // value={!props.isRequired.required}
-              // checked={props.isRequired.required}
               onChange={(event) => handleProps(event)}
               className="small"
             />
             <p>Input 'icon' or 'text'</p>
             <input
               type="text"
-              name="isRequired.type" 
+              name="isRequired.type"
               value={props.isRequired.type}
               onChange={(event) => handleProps(event)}
               className="mt-10 small-input"
@@ -197,9 +208,8 @@ function App() {
           </div>
         </div>
 
-
         <div className="mt-10 ml-5 ww">
-          <div className="labelSidePosition">
+          <div className="">
             <strong className="">labelSidePosition prop</strong>
             <p>By default it is false, click to make it true</p>
             <input
@@ -207,59 +217,71 @@ function App() {
               name="labelSidePosition"
               onChange={(event) => handleProps(event)}
               className="small"
-            />        
+            />
           </div>
         </div>
-       
+
         <div className="mt-10 ml-5 ww">
-          <div className="darkMode">
+          <div className="">
             <strong className="">darkMode prop</strong>
-            <p>By default it is false, click to make it true. If you are using a lib, you need a black background color</p>
+            <p>
+              By default it is false, click to make it true. If you are using a
+              lib, you need a black background color
+            </p>
             <input
               type="checkbox"
               name="darkMode"
               onChange={(event) => handleProps(event)}
               className="small"
-            />        
+            />
           </div>
         </div>
-        
+
         <div className="mt-10 ml-5 ww">
-          <div className="iconBefore">
+          <div className="">
             <strong className="">iconBefore prop</strong>
-            <p>By default it is false, click to make it true. It is the icon before the input</p>
+            <p>
+              By default it is false, click to make it true. It is the icon
+              before the input
+            </p>
             <input
               type="checkbox"
               name="iconBefore"
               onChange={(event) => handleProps(event)}
               className="small"
-            />        
+            />
           </div>
         </div>
-        
+
         <div className="mt-10 ml-5 ww">
-          <div className="iconAfter">
+          <div className="">
             <strong className="">iconAfter prop</strong>
-            <p>By default it is false, click to make it true. It is the icon after the input</p>
+            <p>
+              By default it is false, click to make it true. It is the icon
+              after the input
+            </p>
             <input
               type="checkbox"
               name="iconAfter"
               onChange={(event) => handleProps(event)}
               className="small"
-            />        
+            />
           </div>
         </div>
-        
+
         <div className="mt-10 ml-5 ww">
-          <div className="shortKey">
+          <div className="">
             <strong className="">shortKey prop</strong>
-            <p>By default it is false, click to make it true. It is the icon after the input iconAfter</p>
+            <p>
+              By default it is false, click to make it true. It is the icon
+              after the input iconAfter
+            </p>
             <input
               type="checkbox"
               name="shortKey"
               onChange={(event) => handleProps(event)}
               className="small"
-            />        
+            />
           </div>
         </div>
 
@@ -276,7 +298,7 @@ function App() {
             <p> Input the text you want to see as a label on top or left.</p>
           </label>
         </div>
-        
+
         <div className="mt-10 ml-5 ww">
           <input
             type="text"
@@ -287,10 +309,14 @@ function App() {
           />
           <label htmlFor="popUpText" className="mt-10">
             <strong className="ml-5">InfoIcon text prop</strong>
-            <p> Input the text you want to see as a hit of infoIcon. Leave it empty if dont want to see the icon at all</p>
+            <p>
+              {" "}
+              Input the text you want to see as a hit of infoIcon. Leave it
+              empty if dont want to see the icon at all
+            </p>
           </label>
         </div>
-        
+
         <div className="mt-10 ml-5 ww">
           <input
             type="text"
@@ -301,9 +327,71 @@ function App() {
           />
           <label htmlFor="questionText" className="mt-10">
             <strong className="ml-5">questionText text prop</strong>
-            <p>If you have iconAfter props true, this propperty allows you to input a pop up text for the icon</p>
+            <p>
+              If you have iconAfter props true, this propperty allows you to
+              input a pop up text for the icon
+            </p>
           </label>
         </div>
+
+        <div className="mt-10 ml-5 ww">
+          <strong className="ml-5">onChange prop</strong>
+          <p>
+            Here you add your custom function handlers, by passing onChange
+            prop. Now there is a console log event.
+          </p>
+        </div>
+
+        <div className="mt-10 ml-5 ww">
+          <div className="">
+            <strong className="">disabled prop</strong>
+            <p>
+              By default it is false, click to make it true. You can use prop
+              for input disabling or you can use custom hook useDisable as well.
+            </p>
+            <input
+              type="checkbox"
+              name="disabled"
+              onChange={disableInput}
+              className="small"
+            />
+          </div>
+        </div>
+
+        <div className="mt-10 ml-5 ww">
+          <div className="">
+            <strong className="">border prop</strong>
+            <p>
+              By default it is true, click to hide the border, make it false.
+            </p>
+            <input
+              type="checkbox"
+              name="border"
+              onChange={(event) => handleProps(event)}
+              className="small"
+              checked={props.border}
+            />
+          </div>
+        </div>
+
+        <div className="mt-10 ml-5 ww">
+          <div className="">
+            <strong className="">isAlignmentRight prop</strong>
+            <p>
+              By default it is false, click to make it true. Your input text will appear from the right 
+            </p>
+            <input
+              type="checkbox"
+              name="isAlignmentRight"
+              onChange={(event) => handleProps(event)}
+              className="small"
+            />
+          </div>
+        </div>
+
+        <div className="mt-10 ml-5 ww">
+        </div>
+
 
 
       </div>
