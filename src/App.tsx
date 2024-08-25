@@ -102,7 +102,7 @@ function App() {
       </div>
 
       <div className="control ml-5 mr-5">
-        <div className="mt-10 ww">
+        <div className="mt-10 ww ml-5">
           <div className="size">
             <fieldset>
               <div className="flex">
