@@ -45,7 +45,7 @@ It is a test task for Lisapet.ai. The micro input library is done in a freestyle
 
  * @param {string} options.placeholder - Text string for placeholder.
 
-# [Demolink](https://haduigon.github.io/test-task-lisapet/) click checkboxees, text smth into input, give me your feedback
+# [Demolink](https://haduigon.github.io/test-task-lisapet/) click checkboxes, text smth into input, give me your feedback
 
 # _Status:_
 
@@ -78,9 +78,7 @@ Feel free to suggest any improvements.
 
 [![classnames](https://img.shields.io/badge/Classnames-2.5.1-lightgreen)](https://www.npmjs.com/package/classnames)
 
-# React FB chat landing features:
-
-FEATURES
+# test-task-lisapet key features:
 
 Locate your label on top or beside the input
 
@@ -100,4 +98,4 @@ _npm start_
 
 # Reflection
 
-It was an interesting task for me, which forced me to reconsider my approach to a lot of things and required a significant amount of time. I avoided using the Redux state manager due to the size of the app. This was probably a mistake if a decision is made to expand this app in the future. I decided to have only one entry point: the InputGroup, which is the main component that takes parameters; all other components are used inside InputGroup. If you want to, you can pass nothing to the component—it should still work, as every prop is optional. I also tried to minimize the number of props, but I am not sure if I managed to do it effectively. I am open to improvement, so feel free to give me your feedback.
+It was an interesting task for me, which forced me to reconsider my approach to a lot of things and required a significant amount of time. I avoided using the Redux state manager due to the size of the app. This was probably a mistake if a decision is made to expand this app in the future. I decided to have only one entry point: the InputGroup, which is the main component that takes parameters; all other components are used inside InputGroup. If you want to feel free, you can pass nothing to the component—it should still work, as every prop is optional. I also tried to minimize the number of props, but I am not sure if I managed to do it effectively. I am open to improvement, so feel free to give me your feedback.
