@@ -5,7 +5,7 @@ import classNames from "classnames";
 import { useDisable } from "./helpers/utils";
 
 const defaultState = {
-  annotation: "",
+  annotation: "Use checkboxes and inputs below",
   size: "m",
   isAlignmentRight: false,
   border: true,
@@ -17,7 +17,7 @@ const defaultState = {
     type: "",
     text: "",
   },
-  label: "",
+  label: "Example",
   type: "",
   popUpText: "",
   questionText: "",
