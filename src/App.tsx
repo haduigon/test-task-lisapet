@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.scss";
 import InputGroup from "./InputGroup";
 import classNames from "classnames";
@@ -51,7 +51,6 @@ function App() {
     }
 
     const id = event.target.name as keyof typeof props;
-    console.log(props[id], "id", event.target.id);
     setProps((prevState) => ({
       ...prevState,
       [id]:

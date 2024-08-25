@@ -39,7 +39,6 @@ const InputGroup: React.FC<Props> = ({...args}) => {
   const { state, dispatch } = useContext(AppStateContext);
 
   const showAnnotation = state?.annotation?.length > 0 && !state.labelSidePosition;
-  console.log(args,'state insaide InputGroup');
   
   useEffect(() => {
     if (Object.keys(args).length > 0) {
@@ -63,8 +62,9 @@ const InputGroup: React.FC<Props> = ({...args}) => {
       <InputLabel />
       <InputText />
       {showAnnotation && <InputAnnotation />}
-    </div>
+      </div>
   )
 }
 
 export default InputGroup;
+

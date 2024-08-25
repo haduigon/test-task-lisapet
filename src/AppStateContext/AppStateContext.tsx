@@ -28,10 +28,7 @@ interface App {
   labelSidePosition: boolean,
   disabled: boolean,
   darkMode: boolean,
-  // infoIcon: boolean,
   onChange: (data: React.ChangeEvent<HTMLInputElement>) => void,
-  // onChangeIconBefore: (data: React.ChangeEvent<HTMLInputElement>) => void,
-  // onChangeIconAfter: (data: React.ChangeEvent<HTMLInputElement>) => void,
 }
 
 type Action =
@@ -123,10 +120,7 @@ const initialState: State = {
     disabled: false,
     darkMode: false,
     placeholder: 'Deafult...',
-    // infoIcon: false,
     onChange: () => { },
-    // onChangeIconBefore: () => {},
-    // onChangeIconAfter: () => {},
   },
   dispatch: () => {},
 };

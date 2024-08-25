@@ -81,7 +81,6 @@ const iconMap: IconMap = {
 
 export function useQuestionIqonHook(iconName: any) {
     const { state } = useContext(AppStateContext);
-  // console.log(state, iconName);
   
   const chosenQuestionIqon = useCallback(() => {
     if (state.darkMode) {
